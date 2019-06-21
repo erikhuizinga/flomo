@@ -8,10 +8,8 @@
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 .DS_Store
-/build
 /captures
 .externalNativeBuild
-*.class
 *.log
 *.ctxt
 .mtj.tmp/
@@ -23,7 +21,6 @@
 *.tar.gz
 *.rar
 hs_err_pid*
-/build/
 gradle-app.setting
 !gradle-wrapper.jar
 .gradletasknamecache
@@ -51,10 +48,7 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 .idea/httpRequests
-*.apk
-*.ap_
 *.aab
-*.dex
 bin/
 gen/
 release/
@@ -64,7 +58,6 @@ proguard/
 captures/
 .idea/tasks.xml
 .idea/assetWizardSettings.xml
-.idea/dictionaries
 .idea/navEditor.xml
 freeline.py
 freeline/
