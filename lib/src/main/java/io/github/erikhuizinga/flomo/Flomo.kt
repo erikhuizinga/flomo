@@ -14,6 +14,9 @@ import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.launch
 
+/**
+ * Flow network connectivity info ([NetworkInfo]) in a non-blocking way.
+ */
 @ExperimentalCoroutinesApi
 val Context.networkInfoFlow: Flow<NetworkInfo>
 	get() {
