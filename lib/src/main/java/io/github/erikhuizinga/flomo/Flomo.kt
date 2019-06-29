@@ -11,8 +11,14 @@ import kotlinx.coroutines.channels.ProducerScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.launch
+
+@ExperimentalCoroutinesApi
+val Context.isNetworkConnectedFlow
+	get() = networkInfoFlow.map { it.isConnected }.distinctUntilChanged()
 
 /**
  * Flow network connectivity info ([NetworkInfo]) in a non-blocking way.
