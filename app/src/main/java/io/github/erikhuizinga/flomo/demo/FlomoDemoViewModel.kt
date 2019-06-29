@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import io.github.erikhuizinga.flomo.isNetworkConnectedFlow
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -55,5 +56,12 @@ class FlomoDemoViewModel(private val context: Context) : ViewModel() {
 		currentJob?.cancel()
 		counter = 0.also(_counterData::postValue)
 		_isMonitoringNetwork.postValue(false)
+	}
+
+	@Suppress("UNCHECKED_CAST")
+	class Factory(private val context: Context) : ViewModelProvider.Factory {
+		override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+			return FlomoDemoViewModel(context.applicationContext) as T
+		}
 	}
 }
