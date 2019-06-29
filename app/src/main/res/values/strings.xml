@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Flomo Demo</string>
+    <string name="stop">Stop monitoring network</string>
+    <string name="start">Start monitoring network</string>
+    <string name="network_not_connected">No network connection!</string>
+    <string name="network_connected">Active network connection!</string>
+    <string name="network_not_monitoring">Not monitoring network connection!</string>
+    <string name="counter">Observed %s network connectivity changes.</string>
 </resources>
