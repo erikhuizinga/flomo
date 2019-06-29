@@ -16,6 +16,9 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.launch
 
+/**
+ * Flow network connectivity status ([Boolean]) in a non-blocking way.
+ */
 @ExperimentalCoroutinesApi
 val Context.isNetworkConnectedFlow
 	get() = networkInfoFlow.map { it.isConnected }.distinctUntilChanged()
