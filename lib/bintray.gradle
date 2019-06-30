@@ -1,0 +1,12 @@
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'erikhuizinga'
+    repoName = 'maven'
+    groupId = 'io.github.erikhuizinga'
+    artifactId = 'flomo'
+    licences = ['Apache-2.0']
+    publishVersion = android.defaultConfig.versionName
+    desc = 'Android network connection status backed by Kotlin coroutine flows'
+    website = 'https://github.com/erikhuizinga/flomo'
+}
