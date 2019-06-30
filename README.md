@@ -7,18 +7,25 @@ In other words: non-blocking network info monitoring.
 
 # 1. Installation
 
-<details>
+## 1.1. Flomo
 
-<summary>🚧 WIP</summary>
+Depending on the repository you use:
 
-Add the following dependencies to you submodule's Gradle config file:
+ - JCenter: add the following dependencies to your submodule's Gradle config file:
 
-```
+```kotlin
 "io.github.erikhuizinga:flomo:0.0.0-coroutines-1.3.0-M2"
+```
+
+ - JitPack: follow [these instructions](https://jitpack.io/#erikhuizinga/flomo).
+
+## 1.2. Kotlin coroutines
+
+Flomo depends on this specific version of Kotlin coroutines:
+
+```kotlin
 "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0-M2"
 ```
-
-</details>
 
 # 2. Usage
 
