@@ -11,7 +11,7 @@ In other words: non-blocking network info monitoring.
 
 Depending on the repository you use:
 
- - JCenter: add the following dependencies to your submodule's Gradle config file:
+ - JCenter: add the following dependency to your module's Gradle config file:
 
 ```kotlin
 "io.github.erikhuizinga:flomo:0.0.0-coroutines-1.3.0-M2"
