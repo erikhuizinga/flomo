@@ -1,6 +1,8 @@
 package io.github.erikhuizinga.flomo.internal
 
 import android.content.Context
+import android.os.Build.VERSION
+import android.os.Build.VERSION_CODES
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -14,7 +16,10 @@ internal val Context.flomoNetworkFlow: Flow<FlomoNetwork>
 
 		@Suppress("RemoveExplicitTypeArguments")
 		return channelFlow<FlomoNetwork> {
-			flomoNetworkStream = FlomoCompatNetworkStream(this)
+			flomoNetworkStream = when {
+				VERSION.SDK_INT >= VERSION_CODES.P -> Flomo28NetworkStream(this)
+				else -> FlomoCompatNetworkStream(this)
+			}
 
 			flomoNetworkStream.subscribe(this@flomoNetworkFlow)
 
