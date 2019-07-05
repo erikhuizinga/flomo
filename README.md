@@ -7,8 +7,6 @@ In other words: non-blocking network info monitoring.
 
 # 1. Installation
 
-## 1.1. Flomo
-
 Depending on the repository you use:
 
  - JCenter: add the following dependency to your module's Gradle config file:
@@ -19,26 +17,9 @@ Depending on the repository you use:
 
  - JitPack: follow [these instructions](https://jitpack.io/#erikhuizinga/flomo).
 
-## 1.2. Kotlin coroutines
-
-Flomo depends on this specific version of Kotlin coroutines:
-
-```kotlin
-"org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0-M2"
-```
-
 # 2. Usage
 
 ## 2.1. Obtain a `Flow`
-
-### 2.1.a. Network info: `Flow<NetworkInfo>`
-
-```kotlin
-val context: Context // Your Context
-val networkInfoFlow = context.networkInfoFlow
-```
-
-### 2.1.b. Network connectivity status: `Flow<Boolean>`
 
 ```kotlin
 val context: Context // Your Context
@@ -57,5 +38,5 @@ flow.collect { emission -> /* Use emission */ }
 
 ## 2.3. Clean up
 
-There is no need to close resources or cancel the flow, because that is handled by Flomo and Kotlin's flows.
 Don't forget to cancel the coroutine context in which your flow is being collected to prevent leaking the coroutine.
+Flomo and Kotlin's internals make sure all resources used in the flow are cleaned up.
