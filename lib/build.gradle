@@ -55,6 +55,9 @@ dependencies {
 
     // JUnit
     testImplementation 'junit:junit:4.12'
+
+    // MockK
+    testImplementation "io.mockk:mockk:1.9.3"
 }
 
 apply from: 'bintray.gradle'
