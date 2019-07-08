@@ -16,9 +16,9 @@ import kotlinx.coroutines.launch
 @RequiresApi(VERSION_CODES.P)
 @ExperimentalCoroutinesApi
 internal class Flomo28NetworkStream(
-	override val producerScope: ProducerScope<Flomo28Network>
+	override val producerScope: ProducerScope<FlomoNetwork>
 ) : NetworkCallback(),
-	FlomoNetworkStream<Flomo28Network> {
+	FlomoNetworkStream {
 
 	private val Context.connectivityManager get() = getSystemService<ConnectivityManager>()!!
 

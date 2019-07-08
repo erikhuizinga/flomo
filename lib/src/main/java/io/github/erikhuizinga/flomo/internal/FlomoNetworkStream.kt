@@ -5,8 +5,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.ProducerScope
 
 @ExperimentalCoroutinesApi
-internal interface FlomoNetworkStream<in FN : FlomoNetwork> {
-	val producerScope: ProducerScope<FN>
+internal interface FlomoNetworkStream {
+	val producerScope: ProducerScope<FlomoNetwork>
 	fun subscribe(context: Context)
 	fun unsubscribe(context: Context)
 }

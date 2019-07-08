@@ -12,9 +12,9 @@ import kotlinx.coroutines.launch
 
 @ExperimentalCoroutinesApi
 internal class FlomoCompatNetworkStream(
-	override val producerScope: ProducerScope<FlomoCompatNetwork>
+	override val producerScope: ProducerScope<FlomoNetwork>
 ) : BroadcastReceiver(),
-	FlomoNetworkStream<FlomoCompatNetwork> {
+	FlomoNetworkStream {
 	override fun subscribe(context: Context) {
 		context.registerReceiver(
 			this,

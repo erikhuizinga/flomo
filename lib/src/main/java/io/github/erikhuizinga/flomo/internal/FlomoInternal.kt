@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.onCompletion
 @ExperimentalCoroutinesApi
 internal val Context.flomoNetworkFlow: Flow<FlomoNetwork>
 	get() {
-		lateinit var flomoNetworkStream: FlomoNetworkStream<*>
+		lateinit var flomoNetworkStream: FlomoNetworkStream
 
 		@Suppress("RemoveExplicitTypeArguments")
 		return channelFlow<FlomoNetwork> {
