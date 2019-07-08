@@ -16,8 +16,7 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        //noinspection MinSdkTooLow
-        minSdkVersion 3
+        minSdkVersion 14
         targetSdkVersion 28
         versionCode 1
         versionName "0.0.0-coroutines-1.3.0-M2"
