@@ -58,6 +58,9 @@ dependencies {
 
     // MockK
     testImplementation "io.mockk:mockk:1.9.3"
+
+    // LeakCanary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
 }
 
 apply from: 'bintray.gradle'
