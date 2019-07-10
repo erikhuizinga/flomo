@@ -23,3 +23,40 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+// region detekt config
+buildscript {
+    ext.detektVersion = '1.0.0-RC16'
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detektVersion"
+    }
+}
+
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
+detekt {
+    toolVersion = detektVersion
+    input = files("$rootProject.rootDir/lib", "$rootProject.rootDir/app")
+    config = files("$rootProject.rootDir/.config/detekt/detekt.yml")
+    buildUponDefaultConfig = true
+    reports {
+        html.enabled = true
+        xml.enabled = true
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion"
+}
+
+task(check) dependsOn('detekt')
+// endregion
