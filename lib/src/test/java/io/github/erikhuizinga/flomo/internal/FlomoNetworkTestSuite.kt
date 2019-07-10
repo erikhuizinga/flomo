@@ -80,11 +80,11 @@ class FlomoCompatNetworkTest : FlomoNetworkTest() {
 	@Before
 	fun before() {
 		every { connectionChangingNetworkInfoMock.isConnected } returns false andThen true
-		every { connectionChangingNetworkInfoMock.type } returns 0
+		every { @Suppress("DEPRECATION") connectionChangingNetworkInfoMock.type } returns 0
 		every { connectionChangingNetworkInfoMock.subtype } returns 1
 
 		every { anotherNetworkInfoMock.isConnected } returns true
-		every { anotherNetworkInfoMock.type } returns 2
+		every { @Suppress("DEPRECATION") anotherNetworkInfoMock.type } returns 2
 		every { anotherNetworkInfoMock.subtype } returns 3
 	}
 
