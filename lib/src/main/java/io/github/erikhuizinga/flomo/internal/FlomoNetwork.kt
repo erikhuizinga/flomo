@@ -8,17 +8,14 @@ internal sealed class FlomoNetwork(val isConnected: Boolean) {
 	abstract override fun hashCode(): Int
 }
 
-internal class Flomo28Network(
-	private val network: Network?,
-	isConnected: Boolean
-) : FlomoNetwork(isConnected) {
+internal class Flomo28Network(private val network: Network?, isConnected: Boolean) :
+	FlomoNetwork(isConnected) {
 	override fun equals(other: Any?) = other is Flomo28Network && other.network == network
 	override fun hashCode() = network?.hashCode() ?: 0
 }
 
-internal class FlomoCompatNetwork(
-	private val networkInfo: NetworkInfo
-) : FlomoNetwork(networkInfo.isConnected) {
+internal class FlomoCompatNetwork(private val networkInfo: NetworkInfo) :
+	FlomoNetwork(networkInfo.isConnected) {
 	override fun equals(other: Any?) =
 		other is FlomoCompatNetwork &&
 				other.networkInfo.type == networkInfo.type &&

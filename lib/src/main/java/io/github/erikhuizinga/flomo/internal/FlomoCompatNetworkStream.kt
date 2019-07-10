@@ -11,10 +11,8 @@ import kotlinx.coroutines.channels.ProducerScope
 import kotlinx.coroutines.launch
 
 @ExperimentalCoroutinesApi
-internal class FlomoCompatNetworkStream(
-	override val producerScope: ProducerScope<FlomoNetwork>
-) : BroadcastReceiver(),
-	FlomoNetworkStream {
+internal class FlomoCompatNetworkStream(override val producerScope: ProducerScope<FlomoNetwork>) :
+	BroadcastReceiver(), FlomoNetworkStream {
 	override fun subscribe(context: Context) {
 		context.registerReceiver(
 			this,
