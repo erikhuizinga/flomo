@@ -51,7 +51,6 @@ fabric.properties
 *.aab
 bin/
 gen/
-release/
 build/
 proguard/
 .navigation/
