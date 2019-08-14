@@ -9,6 +9,7 @@ Kotlin's flow API might change from version to version and with those changes Fl
  - New: internal optimisations for performance and reliability.
 Now, `Context.isNetworkConnectedFlow` more reliably emits `true` or `false` if any network gains or loses a connection respectively.
  - Change: this release exposes `kotlinx-coroutines` as an `api` dependency.
+ - Change: this release depends on `kotlinx-coroutines` v1.3.0-RC2.
  - Internal: migrate Gradle scripts to the Gradle Kotlin DSL
 
 ## `v0.0.0-coroutines-1.3.0-M2` (2019-06-30):
