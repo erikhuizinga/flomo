@@ -12,7 +12,7 @@ const val MIN_SDK_VERSION = 14
 const val TARGET_SDK_VERSION = 28
 
 // Module dependency versions
-const val KOTLINX_COROUTINES = "1.3.0-M2"
+const val KOTLINX_COROUTINES = "1.3.0-RC2"
 const val ANDROIDX_APPCOMPAT = "1.0.2"
 const val ANDROIDX_CORE_KTX = "1.0.2"
 const val ANDROIDX_CONSTRAINTLAYOUT = "1.1.3"
