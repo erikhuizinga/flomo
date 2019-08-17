@@ -25,11 +25,8 @@ internal class FlomoCompatNetworkStream(override val producerScope: ProducerScop
             ?.getParcelableExtra<NetworkInfo>(
                 @Suppress("DEPRECATION") ConnectivityManager.EXTRA_NETWORK_INFO
             )
-            ?.let { networkInfo ->
-                producerScope.apply { launch { send(FlomoCompatNetwork(networkInfo)) } }
-            }
+            ?.let { producerScope.apply { launch { send(FlomoCompatNetwork(it)) } } }
     }
 
-    override fun unsubscribe(context: Context) =
-        context.unregisterReceiver(this)
+    override fun unsubscribe(context: Context) = context.unregisterReceiver(this)
 }
