@@ -12,24 +12,24 @@ import kotlinx.coroutines.launch
 
 @ExperimentalCoroutinesApi
 internal class FlomoCompatNetworkStream(override val producerScope: ProducerScope<FlomoNetwork>) :
-	BroadcastReceiver(), FlomoNetworkStream {
-	override fun subscribe(context: Context) {
-		context.registerReceiver(
-			this,
-			IntentFilter(@Suppress("DEPRECATION") ConnectivityManager.CONNECTIVITY_ACTION)
-		)
-	}
+    BroadcastReceiver(), FlomoNetworkStream {
+    override fun subscribe(context: Context) {
+        context.registerReceiver(
+            this,
+            IntentFilter(@Suppress("DEPRECATION") ConnectivityManager.CONNECTIVITY_ACTION)
+        )
+    }
 
-	override fun onReceive(context: Context?, intent: Intent?) {
-		intent
-			?.getParcelableExtra<NetworkInfo>(
-				@Suppress("DEPRECATION") ConnectivityManager.EXTRA_NETWORK_INFO
-			)
-			?.let { networkInfo ->
-				producerScope.apply { launch { send(FlomoCompatNetwork(networkInfo)) } }
-			}
-	}
+    override fun onReceive(context: Context?, intent: Intent?) {
+        intent
+            ?.getParcelableExtra<NetworkInfo>(
+                @Suppress("DEPRECATION") ConnectivityManager.EXTRA_NETWORK_INFO
+            )
+            ?.let { networkInfo ->
+                producerScope.apply { launch { send(FlomoCompatNetwork(networkInfo)) } }
+            }
+    }
 
-	override fun unsubscribe(context: Context) =
-		context.unregisterReceiver(this)
+    override fun unsubscribe(context: Context) =
+        context.unregisterReceiver(this)
 }

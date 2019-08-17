@@ -13,14 +13,14 @@ import kotlinx.coroutines.flow.flow
  */
 @ExperimentalCoroutinesApi
 val Context.isNetworkConnectedFlow
-	get() = flow {
-		val connectedNetworks = mutableSetOf<FlomoNetwork>()
-		flomoNetworkFlow.collect { flomoNetwork ->
-			if (flomoNetwork.isConnected) {
-				connectedNetworks += flomoNetwork
-			} else {
-				connectedNetworks -= flomoNetwork
-			}
-			emit(connectedNetworks.any())
-		}
-	}.distinctUntilChanged()
+    get() = flow {
+        val connectedNetworks = mutableSetOf<FlomoNetwork>()
+        flomoNetworkFlow.collect { flomoNetwork ->
+            if (flomoNetwork.isConnected) {
+                connectedNetworks += flomoNetwork
+            } else {
+                connectedNetworks -= flomoNetwork
+            }
+            emit(connectedNetworks.any())
+        }
+    }.distinctUntilChanged()

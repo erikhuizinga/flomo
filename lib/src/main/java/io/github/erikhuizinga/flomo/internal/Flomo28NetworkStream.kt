@@ -16,30 +16,30 @@ import kotlinx.coroutines.launch
 @RequiresApi(VERSION_CODES.P)
 @ExperimentalCoroutinesApi
 internal class Flomo28NetworkStream(override val producerScope: ProducerScope<FlomoNetwork>) :
-	NetworkCallback(), FlomoNetworkStream {
+    NetworkCallback(), FlomoNetworkStream {
 
-	private val Context.connectivityManager get() = getSystemService<ConnectivityManager>()!!
+    private val Context.connectivityManager get() = getSystemService<ConnectivityManager>()!!
 
-	private val networkRequest = Builder()
-		.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-		.build()
+    private val networkRequest = Builder()
+        .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+        .build()
 
-	override fun subscribe(context: Context) = context.connectivityManager.run {
-		registerNetworkCallback(
-			networkRequest,
-			this@Flomo28NetworkStream
-		)
-		send(activeNetwork, activeNetworkInfo?.isConnected ?: false)
-	}
+    override fun subscribe(context: Context) = context.connectivityManager.run {
+        registerNetworkCallback(
+            networkRequest,
+            this@Flomo28NetworkStream
+        )
+        send(activeNetwork, activeNetworkInfo?.isConnected ?: false)
+    }
 
-	override fun onAvailable(network: Network?) = send(network, true)
+    override fun onAvailable(network: Network?) = send(network, true)
 
-	override fun onLost(network: Network?) = send(network, false)
+    override fun onLost(network: Network?) = send(network, false)
 
-	private fun send(network: Network?, isConnected: Boolean) {
-		producerScope.apply { launch { send(Flomo28Network(network, isConnected)) } }
-	}
+    private fun send(network: Network?, isConnected: Boolean) {
+        producerScope.apply { launch { send(Flomo28Network(network, isConnected)) } }
+    }
 
-	override fun unsubscribe(context: Context) =
-		context.connectivityManager.unregisterNetworkCallback(this)
+    override fun unsubscribe(context: Context) =
+        context.connectivityManager.unregisterNetworkCallback(this)
 }
