@@ -13,9 +13,9 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.ProducerScope
 import kotlinx.coroutines.launch
 
-@RequiresApi(VERSION_CODES.P)
+@RequiresApi(VERSION_CODES.M)
 @ExperimentalCoroutinesApi
-internal class Flomo28NetworkStream(override val producerScope: ProducerScope<FlomoNetwork>) :
+internal class Flomo23NetworkStream(override val producerScope: ProducerScope<FlomoNetwork>) :
     NetworkCallback(), FlomoNetworkStream {
 
     private val Context.connectivityManager get() = getSystemService<ConnectivityManager>()!!
@@ -27,7 +27,7 @@ internal class Flomo28NetworkStream(override val producerScope: ProducerScope<Fl
     override fun subscribe(context: Context) = context.connectivityManager.run {
         registerNetworkCallback(
             networkRequest,
-            this@Flomo28NetworkStream
+            this@Flomo23NetworkStream
         )
         send(activeNetwork, activeNetworkInfo?.isConnected ?: false)
     }
@@ -37,7 +37,7 @@ internal class Flomo28NetworkStream(override val producerScope: ProducerScope<Fl
     override fun onLost(network: Network?) = send(network, false)
 
     private fun send(network: Network?, isConnected: Boolean) {
-        producerScope.apply { launch { send(Flomo28Network(network, isConnected)) } }
+        producerScope.apply { launch { send(Flomo21Network(network, isConnected)) } }
     }
 
     override fun unsubscribe(context: Context) =

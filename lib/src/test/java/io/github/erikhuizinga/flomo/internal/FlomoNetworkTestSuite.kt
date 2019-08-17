@@ -17,7 +17,7 @@ import org.junit.runners.Suite
 import org.junit.runners.Suite.SuiteClasses
 
 @RunWith(Suite::class)
-@SuiteClasses(Flomo28NetworkTest::class, FlomoCompatNetworkTest::class)
+@SuiteClasses(Flomo21NetworkTest::class, FlomoCompatNetworkTest::class)
 class FlomoNetworkTestSuite
 
 abstract class FlomoNetworkTest {
@@ -27,13 +27,13 @@ abstract class FlomoNetworkTest {
     abstract fun `hashCode is different for other network`()
 }
 
-class Flomo28NetworkTest : FlomoNetworkTest() {
+class Flomo21NetworkTest : FlomoNetworkTest() {
     companion object {
         private val networkMock = mockk<Network>()
         private val anotherNetworkMock = mockk<Network>()
-        private val disconnectedFlomo28Network = Flomo28Network(networkMock, false)
-        private val connectedFlomo28Network = Flomo28Network(networkMock, true)
-        private val anotherFlomo28Network = Flomo28Network(anotherNetworkMock, false)
+        private val disconnectedFlomo28Network = Flomo21Network(networkMock, false)
+        private val connectedFlomo28Network = Flomo21Network(networkMock, true)
+        private val anotherFlomo28Network = Flomo21Network(anotherNetworkMock, false)
 
         @JvmStatic
         @AfterClass
