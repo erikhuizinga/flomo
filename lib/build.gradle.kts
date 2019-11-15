@@ -21,7 +21,7 @@ android {
 
     defaultConfig {
         versionCode = 2
-        versionName = "0.1.0-beta"
+        versionName = FLOMO
 
         minSdkVersion(MIN_SDK_VERSION)
         targetSdkVersion(TARGET_SDK_VERSION)

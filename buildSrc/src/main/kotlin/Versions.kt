@@ -1,3 +1,6 @@
+// Lib version name
+const val FLOMO = "0.1.0-beta"
+
 // Top level plugin versions
 const val ANDROID_GRADLE = "3.4.2"
 const val KOTLIN = "1.3.41"
