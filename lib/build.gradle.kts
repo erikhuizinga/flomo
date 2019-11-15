@@ -6,22 +6,11 @@ plugins {
     kotlin("android.extensions")
 }
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-
-    dependencies {
-        classpath("com.novoda:bintray-release:$BINTRAY_RELEASE")
-    }
-}
-
 android {
     compileSdkVersion(COMPILE_SDK_VERSION)
 
     defaultConfig {
-        versionCode = 2
-        versionName = "0.1.0-beta"
+        versionName = FLOMO
 
         minSdkVersion(MIN_SDK_VERSION)
         targetSdkVersion(TARGET_SDK_VERSION)
@@ -70,4 +59,4 @@ dependencies {
     debugImplementation("com.squareup.leakcanary:leakcanary-android:$LEAK_CANARY")
 }
 
-apply(from = "bintray.gradle")
+apply(from = "bintray.gradle.kts")
