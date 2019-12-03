@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import io.github.erikhuizinga.flomo.R
-import kotlinx.android.synthetic.main.activity_flomo_demo.*
+import kotlinx.android.synthetic.main.activity_flomo_demo.button
+import kotlinx.android.synthetic.main.activity_flomo_demo.counter
+import kotlinx.android.synthetic.main.activity_flomo_demo.networkConnectionText
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
