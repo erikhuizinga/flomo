@@ -3,30 +3,6 @@
     <AndroidXmlCodeStyleSettings>
       <option name="ARRANGEMENT_SETTINGS_MIGRATED_TO_191" value="true" />
     </AndroidXmlCodeStyleSettings>
-    <JavaCodeStyleSettings>
-      <option name="IMPORT_LAYOUT_TABLE">
-        <value>
-          <package name="android" withSubpackages="true" static="false" />
-          <emptyLine />
-          <package name="com" withSubpackages="true" static="false" />
-          <emptyLine />
-          <package name="junit" withSubpackages="true" static="false" />
-          <emptyLine />
-          <package name="net" withSubpackages="true" static="false" />
-          <emptyLine />
-          <package name="org" withSubpackages="true" static="false" />
-          <emptyLine />
-          <package name="java" withSubpackages="true" static="false" />
-          <emptyLine />
-          <package name="javax" withSubpackages="true" static="false" />
-          <emptyLine />
-          <package name="" withSubpackages="true" static="false" />
-          <emptyLine />
-          <package name="" withSubpackages="true" static="true" />
-          <emptyLine />
-        </value>
-      </option>
-    </JavaCodeStyleSettings>
     <JetCodeStyleSettings>
       <option name="NAME_COUNT_TO_USE_STAR_IMPORT" value="100" />
       <option name="NAME_COUNT_TO_USE_STAR_IMPORT_FOR_MEMBERS" value="100" />
