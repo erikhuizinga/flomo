@@ -7,7 +7,7 @@ const val KOTLIN = "1.3.41"
 const val DETEKT = "1.0.0-RC16"
 
 // Module plugin versions
-const val BINTRAY_RELEASE = "0.9.1"
+const val BINTRAY_RELEASE = "0.9.2"
 
 // Android config
 const val COMPILE_SDK_VERSION = 28
