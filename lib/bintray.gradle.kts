@@ -23,4 +23,5 @@ configure<PublishExtension> {
     desc = "Android network connection status backed by Kotlin coroutine flows"
     website = "https://github.com/erikhuizinga/flomo"
     dryRun = false
+    sign = true
 }
