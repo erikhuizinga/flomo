@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.channelFlow
@@ -23,8 +24,7 @@ internal val Context.flomoNetworkFlow: Flow<FlomoNetwork>
 
             flomoNetworkStream.subscribe(this@flomoNetworkFlow)
 
-            // Flow 'forever' until this flow is no longer needed: it is then automatically cancelled
-            delay(Long.MAX_VALUE)
+            awaitClose()
         }.onCompletion {
             flomoNetworkStream.unsubscribe(this@flomoNetworkFlow)
         }
