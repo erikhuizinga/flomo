@@ -32,9 +32,9 @@ internal class Flomo23NetworkStream(override val producerScope: ProducerScope<Fl
     override fun unsubscribe(context: Context) =
         context.connectivityManager.unregisterNetworkCallback(this)
 
-    override fun onAvailable(network: Network?) = send(network, true)
+    override fun onAvailable(network: Network) = send(network, true)
 
-    override fun onLost(network: Network?) = send(network, false)
+    override fun onLosing(network: Network, maxMsToLive: Int) = send(network, false)
 
     private fun send(network: Network?, isConnected: Boolean) {
         producerScope.apply { launch { send(Flomo21Network(network, isConnected)) } }

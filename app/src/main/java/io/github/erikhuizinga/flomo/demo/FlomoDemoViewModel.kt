@@ -12,7 +12,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @ExperimentalCoroutinesApi
@@ -60,7 +59,7 @@ class FlomoDemoViewModel(private val context: Context) : ViewModel() {
 
     @Suppress("UNCHECKED_CAST")
     class Factory(private val context: Context) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return FlomoDemoViewModel(context.applicationContext) as T
         }
     }

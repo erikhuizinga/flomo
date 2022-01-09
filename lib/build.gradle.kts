@@ -10,7 +10,6 @@ android {
     compileSdkVersion(COMPILE_SDK_VERSION)
 
     defaultConfig {
-        versionName = FLOMO
 
         minSdkVersion(MIN_SDK_VERSION)
         targetSdkVersion(TARGET_SDK_VERSION)

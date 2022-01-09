@@ -46,7 +46,18 @@ dependencies {
     implementation("androidx.appcompat:appcompat:$ANDROIDX_APPCOMPAT")
     implementation("androidx.core:core-ktx:$ANDROIDX_CORE_KTX")
     implementation("androidx.constraintlayout:constraintlayout:$ANDROIDX_CONSTRAINTLAYOUT")
-    implementation("androidx.lifecycle:lifecycle-extensions:$ANDROIDX_LIFECYCLE_EXTENSIONS")
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$ANDROIDX_LIFECYCLE_EXTENSIONS")
+    // ViewModel utilities for Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$ANDROIDX_LIFECYCLE_EXTENSIONS")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$ANDROIDX_LIFECYCLE_EXTENSIONS")
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$ANDROIDX_LIFECYCLE_EXTENSIONS")
+    // Saved state module for ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$ANDROIDX_LIFECYCLE_EXTENSIONS")
+
+//    implementation("androidx.lifecycle:lifecycle-extensions:$ANDROIDX_LIFECYCLE_EXTENSIONS")
     androidTestImplementation("androidx.test:runner:$ANDROIDX_TEST_RUNNER")
     androidTestImplementation("androidx.test.espresso:espresso-core:$ANDROIDX_ESPRESSO_CORE")
 

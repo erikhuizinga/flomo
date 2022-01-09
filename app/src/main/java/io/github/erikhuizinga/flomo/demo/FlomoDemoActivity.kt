@@ -6,7 +6,6 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import io.github.erikhuizinga.flomo.R
 import kotlinx.android.synthetic.main.activity_flomo_demo.button
 import kotlinx.android.synthetic.main.activity_flomo_demo.counter
@@ -16,10 +15,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 @ExperimentalCoroutinesApi
 class FlomoDemoActivity : AppCompatActivity() {
     private val flomoDemoViewModel by lazy {
-        ViewModelProviders.of(
-            this,
-            FlomoDemoViewModel.Factory(applicationContext)
-        )[FlomoDemoViewModel::class.java]
+//        ViewModelProvider(this)[FlomoDemoViewModel::class.java]
+        FlomoDemoViewModel.Factory(this).create(FlomoDemoViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
