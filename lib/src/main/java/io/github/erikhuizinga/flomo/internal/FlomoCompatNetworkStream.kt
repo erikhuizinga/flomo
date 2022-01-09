@@ -6,11 +6,9 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.ProducerScope
 import kotlinx.coroutines.launch
 
-@ExperimentalCoroutinesApi
 internal class FlomoCompatNetworkStream(override val producerScope: ProducerScope<FlomoNetwork>) :
     BroadcastReceiver(), FlomoNetworkStream {
     override fun subscribe(context: Context) {

@@ -15,8 +15,7 @@ internal val Context.flomoNetworkFlow: Flow<FlomoNetwork>
     get() {
         lateinit var flomoNetworkStream: FlomoNetworkStream
 
-        @Suppress("RemoveExplicitTypeArguments")
-        return channelFlow<FlomoNetwork> {
+        return channelFlow {
             flomoNetworkStream = when {
                 VERSION.SDK_INT >= VERSION_CODES.M -> Flomo23NetworkStream(this)
                 else -> FlomoCompatNetworkStream(this)

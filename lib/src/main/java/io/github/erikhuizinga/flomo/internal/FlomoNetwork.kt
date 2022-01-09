@@ -10,7 +10,6 @@ internal sealed class FlomoNetwork(val isConnected: Boolean) {
     abstract override fun hashCode(): Int
 }
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 internal class Flomo21Network(private val network: Network?, isConnected: Boolean) :
     FlomoNetwork(isConnected) {
     override fun equals(other: Any?) = other is Flomo21Network && other.network == network

@@ -6,6 +6,7 @@ import android.net.ConnectivityManager.NetworkCallback
 import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest.Builder
+import android.os.Build
 import android.os.Build.VERSION_CODES
 import androidx.annotation.RequiresApi
 import androidx.core.content.getSystemService
@@ -26,8 +27,29 @@ internal class Flomo23NetworkStream(override val producerScope: ProducerScope<Fl
 
     override fun subscribe(context: Context) = context.connectivityManager.run {
         registerNetworkCallback(networkRequest, this@Flomo23NetworkStream)
-        send(activeNetwork, activeNetworkInfo?.isConnected ?: false)
+        send(activeNetwork, isNetworkAvailable(context))
     }
+
+    private fun isNetworkAvailable(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val nw = connectivityManager.activeNetwork ?: return false
+            val actNw = connectivityManager.getNetworkCapabilities(nw) ?: return false
+            return when {
+                actNw.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+                actNw.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+                //for other device how are able to connect with Ethernet
+                actNw.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+                //for check internet over Bluetooth
+                actNw.hasTransport(NetworkCapabilities.TRANSPORT_BLUETOOTH) -> true
+                else -> false
+            }
+        } else {
+            return connectivityManager.activeNetworkInfo?.isConnected ?: false
+        }
+    }
+
 
     override fun unsubscribe(context: Context) =
         context.connectivityManager.unregisterNetworkCallback(this)
