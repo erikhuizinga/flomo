@@ -2,8 +2,6 @@ package io.github.erikhuizinga.flomo.internal
 
 import android.net.Network
 import android.net.NetworkInfo
-import android.os.Build
-import androidx.annotation.RequiresApi
 
 internal sealed class FlomoNetwork(val isConnected: Boolean) {
     abstract override fun equals(other: Any?): Boolean
